@@ -3,8 +3,7 @@
 A Vue 3 project for managing orders McDonalds for normal and VIP customers through the use of bots.
 Each both can handle 1 order at a time and takes 10 seconds to complete an order.
 
-Site URL:
-`https://se-take-home-assignment-feedme.onrender.com/`
+[Site URL](https://se-take-home-assignment-feedme.onrender.com/)
 
 
 ## Project Setup
