@@ -1,13 +1,15 @@
 <template>
   <h1 class="text-4xl">McDonald's Ordering System</h1>
   <div class="flex gap-2 m-4 flex-wrap">
-    <div class="flex  flex-col gap-2">
+    <div class="flex flex-col gap-2">
+      <h2 class="font-bold text-xl underline">Order</h2>
       <ButtonComp @clicked="newOrder">
         New Normal Order
       </ButtonComp>
       <ButtonComp @clicked="newOrder('vip')">
         New VIP Order
       </ButtonComp>
+      <h2 class="font-bold text-xl underline mt-auto">Bots</h2>
       <ButtonComp @clicked="addBot">
         + Bot
       </ButtonComp>
@@ -15,10 +17,10 @@
         - Bot
       </ButtonComp>
     </div>
-    <div class="grid grid-cols-2 gap-2 flex-1 h-[90vh] overflow-auto">
-      <div class="flex flex-col gap-1 h-[80%]">
+    <div class="grid grid-cols-2 grid-rows-[50%_1fr] gap-2 flex-1 h-[90vh] overflow-auto">
+      <div class="flex flex-col gap-1">
         <h2 class="font-bold text-xl">Pending Orders</h2>
-        <div class="bg-blue-100 border border-blue-400 flex-1 flex gap-2 flex-wrap p-2 overflow-auto">
+        <div class="bg-blue-100 border border-blue-400 flex-1 flex gap-2 flex-wrap p-2 overflow-auto min-h-0">
           <OrderComp
             v-for="order of pendingOrders"
             :key="order.ID"
@@ -26,9 +28,9 @@
           />
         </div>
       </div>
-      <div class="flex flex-col gap-1 h-[80%]">
+      <div class="flex flex-col gap-1">
         <h2 class="font-bold text-xl">Completed Orders</h2>
-        <div class="bg-green-100 border border-green-400 flex-1 flex gap-2 flex-wrap p-2 overflow-auto">
+        <div class="bg-green-100 border border-green-400 flex-1 flex gap-2 flex-wrap p-2 overflow-auto min-h-0">
           <OrderComp
             v-for="order of completedOrders"
             :key="order.ID"
@@ -38,8 +40,8 @@
       </div>
       <div class="flex flex-col gap-1 col-span-2">
         <h2 class="font-bold text-xl">Cooking Bots</h2>
-        <div class="bg-orange-100 border border-orange-400 flex-1 flex gap-2 flex-wrap p-2">
-          <div v-for="bot of bots" :key="bot.ID" class="p-1 bg-white border border-red-400 rounded-md flex flex-col gap-1 h-fit">
+        <div class="bg-orange-100 border border-orange-400 flex-1 flex gap-2 flex-wrap p-2 overflow-auto min-h-0">
+          <div v-for="bot of bots" :key="bot.ID" :class="bot.status == 'active' ? 'bg-red-100' : 'bg-white'" class="p-1 border border-red-400 rounded-md flex flex-col gap-1 h-fit">
             <span class="font-semibold text-lg">Bot #{{ bot.ID }}</span>
             <span class="capitalize">Status: {{ bot.status }}</span>
           </div>
