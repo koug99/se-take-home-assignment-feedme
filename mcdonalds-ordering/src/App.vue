@@ -1,5 +1,11 @@
 <template>
-  <h1 class="text-4xl">McDonald's Ordering System</h1>
+  <div class="flex justify-between">
+    <h1 class="text-4xl">McDonald's Ordering System</h1>
+    <div>
+      <span>By: Koughen Mogan</span><br>
+      <a href="https://github.com/koug99/se-take-home-assignment-feedme" target="_blank" class="underline ">GitHub</a>
+    </div>
+  </div>
   <div class="flex gap-2 m-4 flex-wrap">
     <div class="flex flex-col gap-2">
       <h2 class="font-bold text-xl underline">Order</h2>
